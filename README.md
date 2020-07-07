@@ -5,6 +5,19 @@ If you run:
 ./gradlew publishToMavenLocal --debug
 ```
 
+## Update 1
+After update of Gradle plugin org.springframework.cloud.contract to compatible version 2.2.2.RELEASE the error is different:
+```text
+2020-07-07T16:03:50.603+0200 [WARN] [org.springframework.cloud.contract.verifier.util.ContractVerifierDslConverter] Exception occurred while trying to parse the file [/Users/marcinstachniuk/code/scc-generate-from-java-issue/producer/build/stubs/META-INF/com.example/producer/1.0.0/contracts/com/contractGenerator.java] as a contract. Will not parse it.
+java.lang.IllegalStateException: Exceptions occurred while trying to compile the file [==========
+                return Contract.make(c -> {
+                               ^^^^^
+ERROR:cannot access groovy.lang.Closure
+  class file for groovy.lang.Closure not found
+```
+
+## Original issue:
+
 Now search in output for: `AAAAAAAA` then you see only: `AAAAAAAA groovy`, but you should also see `AAAAAAAA java` 
 as defined in contractGenerator class.
 Another log output confirmed a bug:

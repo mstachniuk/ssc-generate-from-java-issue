@@ -1,6 +1,7 @@
 package com;
 
 import java.util.function.Supplier;
+import org.springframework.cloud.contract.spec.Contract;
 
 public class contractGenerator implements Supplier<Contract>  {
 	@Override
